@@ -54,6 +54,10 @@ void usage(char *str) {
     "\t-h              : this help\n\n");
 }
 
+void finalize() {
+
+}
+
 //------------------------------------------------------------------------------
 void set_iv(uint8_t *iv, size_t block_size) {
 
@@ -65,7 +69,9 @@ void set_iv(uint8_t *iv, size_t block_size) {
   uint8_t i = 0;
   for ( ; i < block_size; i++) {
 
-    fread(&iv[i], sizeof(randval), 1, fd);
+    if(fread(&iv[i], sizeof(randval), 1, fd) == 0) {
+      fprintf(stderr, "Read 0 bytes from /dev/random\n");
+    }
   }
 
   fclose(fd);
