@@ -358,6 +358,7 @@ int main(int argc, char *argv[]) {
 
   if (bc->func == aes) {
     free(key);
+    key = NULL;
   }
 
   return 0;

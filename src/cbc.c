@@ -45,6 +45,7 @@ size_t cbc(blockcipher_fn cipher, uint8_t direction,
 
   if (last) {
     free(tmp);
+    tmp = NULL;
   }
 
   return res;

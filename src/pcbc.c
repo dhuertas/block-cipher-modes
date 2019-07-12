@@ -47,6 +47,7 @@ size_t pcbc(blockcipher_fn cipher, uint8_t direction,
 
   if (last) {
     free(tmp);
+    tmp = NULL;
   }
 
   return res;
